@@ -35,9 +35,9 @@ public class ControladorRequerimientosReto4 implements ActionListener {
     private final LideresProyectosEmblematicosDao lideresProyectosEmblematicosDao;
     private final MaterialRankeadoImportadoDao materialRankeadoImportadoDao;
     private RequirementsMenuInGUI requirementsMenuInGUI;
-    private Requirement1InGUI requerimiento1gui;
-    private Requirement3InGUI requerimiento3gui;
-    private Requirement4InGUI requerimiento4gui;
+    private Requirement1InGUI requerimiento1gui = new Requirement1InGUI();
+    private Requirement3InGUI requerimiento3gui = new Requirement3InGUI();
+    private Requirement4InGUI requerimiento4gui = new Requirement4InGUI();
 
     public ControladorRequerimientosReto4(){        
         // Aqui se instancian todos los DAO que se utilicen
@@ -85,7 +85,7 @@ public class ControladorRequerimientosReto4 implements ActionListener {
         switch (actionString) {
             case "requerimiento1":
                 try {
-                    this.requerimiento1gui = new Requirement1InGUI(queryHighestSalaryLeaders(), this); // Este controlador
+                    this.requerimiento1gui.callGUIRequirment1(queryHighestSalaryLeaders()); // Este controlador
 
                 } catch (Exception exc) {
                     System.err.println("Error de cierre en BD durante requerimiento 1!" + exc.getMessage());
@@ -95,7 +95,7 @@ public class ControladorRequerimientosReto4 implements ActionListener {
 
             case "requerimiento3":
                 try {
-                    this.requerimiento3gui = new Requirement3InGUI(queryFlagshipProjectLeaders(), this); // Este controlador
+                    this.requerimiento3gui.callGUIRequirment3(queryFlagshipProjectLeaders()); // Este controlador
 
                 } catch (Exception exc) {
                     System.err.println("Error de cierre en BD durante requerimiento 3!" + exc.getMessage());
@@ -105,7 +105,7 @@ public class ControladorRequerimientosReto4 implements ActionListener {
 
             case "requerimiento4":
                 try {
-                    this.requerimiento4gui = new Requirement4InGUI(queryImportedMaterialRanking(), this); // Este controlador
+                    this.requerimiento4gui.callGUIRequirment4(queryImportedMaterialRanking()); // Este controlador
 
                 } catch (Exception exc) {
                     System.err.println("Error de cierre en BD durante requerimiento 4!" + exc.getMessage());

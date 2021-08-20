@@ -67,10 +67,10 @@ public class RequirementsMenuInGUI extends JFrame {
         // Tambien se pueden establecer las fuentes
         btnRequerimiento1.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
 
-        ImageIcon liderIcon = new ImageIcon("leader.png");
-        img = liderIcon.getImage();
-        liderIcon = new ImageIcon(img.getScaledInstance(25, 25, java.awt.Image.SCALE_SMOOTH));
-        btnRequerimiento3 = new JButton(liderIcon);
+        icono = new ImageIcon("leader.png");
+        img = icono.getImage();
+        icono = new ImageIcon(img.getScaledInstance(25, 25, java.awt.Image.SCALE_SMOOTH));
+        btnRequerimiento3 = new JButton(icono);
         btnRequerimiento3.setText("Flagship project leaders");
         btnRequerimiento3.addActionListener(controlador);
         btnRequerimiento3.setActionCommand("requerimiento3");
@@ -92,6 +92,7 @@ public class RequirementsMenuInGUI extends JFrame {
 
         // Contenedor intermdio tipo JPanel, estos por lo general van en un contenedor (JFrame)
         JPanel panel = new JPanel();
+        // Se ajustan los botones al tamaño de la ventana, en disposicion: 1 fila por 3 columnas
         panel.setLayout(new GridLayout(1, 3));
         // Agregar componentes al panel
         panel.add(btnRequerimiento1);

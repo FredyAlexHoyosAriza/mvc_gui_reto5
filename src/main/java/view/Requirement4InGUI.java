@@ -1,6 +1,6 @@
 package view;
 
-import controller.ControladorRequerimientosReto4;
+//import controller.ControladorRequerimientosReto4;
 import model.vo.MaterialRankeadoImportado;
 import java.util.ArrayList;
 
@@ -23,7 +23,10 @@ public class Requirement4InGUI extends JFrame {
     private JList<String> impMattRanking; // Imported Materil Ranking
 
     // Constructor
-    public Requirement4InGUI(ArrayList<MaterialRankeadoImportado> impMatt, ControladorRequerimientosReto4 controlador) {        
+    public Requirement4InGUI() {}
+
+    // Method
+    public void callGUIRequirment4(ArrayList<MaterialRankeadoImportado> impMatt) {        
         // Titulo
         setTitle("*** Productos importados ***");
 

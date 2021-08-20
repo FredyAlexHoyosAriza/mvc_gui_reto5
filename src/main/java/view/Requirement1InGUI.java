@@ -1,6 +1,6 @@
 package view;
 
-import controller.ControladorRequerimientosReto4;
+// import controller.ControladorRequerimientosReto4;
 import model.vo.LideresMayorSalario;
 import java.util.ArrayList;
 
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame; // Clase para crear ventanas
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+// import java.awt.GridLayout;
 
 // Interfaces para GUI
 // Puesto que el MVC implica una interfaz, con la mernor cantidad
@@ -18,12 +19,14 @@ import javax.swing.JTable;
 
 public class Requirement1InGUI extends JFrame {
 
-    // Attribute
     // Interface attributes
     private JTable jtBestSalaries;
 
     // Constructor
-    public Requirement1InGUI(ArrayList<LideresMayorSalario> leaders, ControladorRequerimientosReto4 controlador) {
+    public Requirement1InGUI() {}
+
+    // Method
+    public void callGUIRequirment1(ArrayList<LideresMayorSalario> leaders) {
         // Titulo
         setTitle("*** Lideres con mayor salario ***");
 
@@ -34,6 +37,7 @@ public class Requirement1InGUI extends JFrame {
         // registros. A continuacion se preparan los encabezados
         String[] columnHeaders = {"ID_Lider", "Nombre", "Primer_Apellido"};
         jtBestSalaries = new JTable(this.formatBestSalaries(leaders, columnHeaders.length), columnHeaders);
+        //jtBestSalaries.setLayout(new GridLayout(1,1));
 
         // Incorporar tabla:
         // El Scroll solo aparece si en la ventana no cabe la tabla

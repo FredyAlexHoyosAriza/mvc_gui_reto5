@@ -1,6 +1,6 @@
 package view;
 
-import controller.ControladorRequerimientosReto4;
+//import controller.ControladorRequerimientosReto4;
 import model.vo.LideresProyectosEmblematicos;
 import java.util.ArrayList;
 
@@ -23,9 +23,12 @@ public class Requirement3InGUI extends JFrame {
     private JTable flagshipProjectLdr; // Lider de proyecto enblematico
 
     // Constructor
-    public Requirement3InGUI(ArrayList<LideresProyectosEmblematicos> leaders, ControladorRequerimientosReto4 controlador) {
+    public Requirement3InGUI() {}
+
+    // Method
+    public void callGUIRequirment3(ArrayList<LideresProyectosEmblematicos> leaders) {
         // Titulo
-        setTitle("*** Lideres proyectos emblemáticos ");
+        setTitle("*** Lideres proyectos emblemáticos ***");
 
         // Por defecto la ventana permanece oculta y abierta, por ello se debe establecer que esta se cierre
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -45,8 +48,6 @@ public class Requirement3InGUI extends JFrame {
         super.setLocationRelativeTo(null);
         super.setVisible(true);
 
-
-
     }
 
     public Integer[][] formatFlagshipProjectLdr(ArrayList<LideresProyectosEmblematicos> leaders, int columnsNumber) {
@@ -64,6 +65,5 @@ public class Requirement3InGUI extends JFrame {
         // Se retornan los registro en formato de arreglo Clasico
         return registers;
     }
-
 
 }
