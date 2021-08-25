@@ -1,6 +1,6 @@
 package view;
 
-// import controller.ControladorRequerimientosReto4;
+import controller.ControladorRequerimientosReto4;
 import model.vo.LideresMayorSalario;
 import java.util.ArrayList;
 
@@ -19,11 +19,18 @@ import javax.swing.JTable;
 
 public class Requirement1InGUI extends JFrame {
 
+    // Attribute
+    private ControladorRequerimientosReto4 controlador;
+
     // Interface attributes
     private JTable jtBestSalaries;
-
     // Constructor
-    public Requirement1InGUI() {}
+    public Requirement1InGUI(ControladorRequerimientosReto4 controlador) {
+
+        this.controlador = controlador;
+        // // Se establece el diseño de cuadricula usando un metodo de la super clase JFrame
+        // super.setLayout(new GridLayout());
+    }
 
     // Method
     public void callGUIRequirment1(ArrayList<LideresMayorSalario> leaders) {
@@ -37,7 +44,7 @@ public class Requirement1InGUI extends JFrame {
         // registros. A continuacion se preparan los encabezados
         String[] columnHeaders = {"ID_Lider", "Nombre", "Primer_Apellido"};
         jtBestSalaries = new JTable(this.formatBestSalaries(leaders, columnHeaders.length), columnHeaders);
-        //jtBestSalaries.setLayout(new GridLayout(1,1));
+        // jtBestSalaries.setLayout(new GridLayout(1,1));
 
         // Incorporar tabla:
         // El Scroll solo aparece si en la ventana no cabe la tabla

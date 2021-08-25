@@ -16,7 +16,8 @@ import javax.swing.ImageIcon;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Font;
-
+import java.awt.Color;
+import javax.swing.BorderFactory;
 // Interfaces para GUI
 // Puesto que el MVC implica una interfaz, con la mernor cantidad
 // de logico posible, las interfaces ActionListerner y ActionEvent,
@@ -33,6 +34,7 @@ public class RequirementsMenuInGUI extends JFrame {
     private JButton btnRequerimiento1;
     private JButton btnRequerimiento3;
     private JButton btnRequerimiento4;
+    private JButton btnCRUD_Materiales;
 
     // Metodo que genere la ventana, se tienen como opciones:
     // 1) A partir del constructor
@@ -45,7 +47,7 @@ public class RequirementsMenuInGUI extends JFrame {
         setTitle("Requirements menu start");
 
         // Por defecto la ventana permanece oculta y abierta, por ello se debe establecer que esta se cierre
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE); // Al cerrar mata todos los procesos
 
         // Nota: Swing hereda de AWT, y a su vez AWT consume lo que obtiene del sistema operativo (SO), por
         // lo cual la vista de la aplicacion cambia dependiendo del SO
@@ -53,7 +55,9 @@ public class RequirementsMenuInGUI extends JFrame {
         // Crear o instanciar los componentes
         final int FONT_SIZE = 18;
 
-        ImageIcon icono = new ImageIcon("money.png");
+        // Nota: para iconos -> pagina flaticon
+
+        ImageIcon icono = new ImageIcon("img/money.png");
         Image img = icono.getImage();
         icono = new ImageIcon(img.getScaledInstance(25, 25, java.awt.Image.SCALE_SMOOTH));
         // Al constructor JButton se envia una imagen
@@ -67,7 +71,7 @@ public class RequirementsMenuInGUI extends JFrame {
         // Tambien se pueden establecer las fuentes
         btnRequerimiento1.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
 
-        icono = new ImageIcon("leader.png");
+        icono = new ImageIcon("img/leader.png");
         img = icono.getImage();
         icono = new ImageIcon(img.getScaledInstance(25, 25, java.awt.Image.SCALE_SMOOTH));
         btnRequerimiento3 = new JButton(icono);
@@ -76,7 +80,7 @@ public class RequirementsMenuInGUI extends JFrame {
         btnRequerimiento3.setActionCommand("requerimiento3");
         btnRequerimiento3.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
 
-        icono = new ImageIcon("marmol.jpg");
+        icono = new ImageIcon("img/materiales.png");
         img = icono.getImage();
         icono = new ImageIcon(img.getScaledInstance(25, 25, java.awt.Image.SCALE_SMOOTH));
         btnRequerimiento4 = new JButton(icono);
@@ -85,6 +89,15 @@ public class RequirementsMenuInGUI extends JFrame {
         btnRequerimiento4.setActionCommand("requerimiento4");
         btnRequerimiento4.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
 
+        icono = new ImageIcon("img/edicion_BD.png");
+        img = icono.getImage();
+        icono = new ImageIcon(img.getScaledInstance(25, 25, java.awt.Image.SCALE_SMOOTH));
+        btnCRUD_Materiales = new JButton(icono);
+        btnCRUD_Materiales.setText("Materials CRUD");
+        btnCRUD_Materiales.addActionListener(controlador);
+        btnCRUD_Materiales.setActionCommand("crudMateriales");
+        btnCRUD_Materiales.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
+
         // Añadir componentes a componentes intermedios o contenedores
 
         // Nota: Es un poco mas facil organizar los componenes en el contenedor intermedio
@@ -92,19 +105,21 @@ public class RequirementsMenuInGUI extends JFrame {
 
         // Contenedor intermdio tipo JPanel, estos por lo general van en un contenedor (JFrame)
         JPanel panel = new JPanel();
-        // Se ajustan los botones al tamaño de la ventana, en disposicion: 1 fila por 3 columnas
-        panel.setLayout(new GridLayout(1, 3));
+        // Se ajustan los botones al tamaño de la ventana, en disposicion: 2 filas por 2 columnas
+        panel.setLayout(new GridLayout(2, 2));
+        // panel.setBorder(BorderFactory.createLineBorder(Color.GREEN));
         // Agregar componentes al panel
         panel.add(btnRequerimiento1);
         panel.add(btnRequerimiento3);
         panel.add(btnRequerimiento4);
+        panel.add(btnCRUD_Materiales);
 
         // Ahora se pasa del componete intermedio (tipo JPanel) a la ventana (tipo JFrame)
         getContentPane().add(panel); // Se agrega el panel a la ventana
         
         // Establecer las demás propiedades del frame; Algunas propiedades es mejor establecerlas luego de
         // añadir los componentes, p. ej. el tamaño, la visibilidad, etc.
-        setSize(850, 100);
+        setSize(600, 150);
         setLocationRelativeTo(null); // posicion relativa de la ventana con respecto a la pantalla
         setVisible(true); // Ahora la ventana puede verse
 

@@ -11,7 +11,9 @@ import java.sql.SQLException; // manejador de excepciones de conexiones a la BD 
 public class JDBCUtilities {
 
     //Atributos de clase para gestión de conexión con la base de datos      
-    private static final String UBICACION_BD = "ProyectosConstruccion.db"; // ruta relativa
+    private static final String UBICACION_BD = "resources/ProyectosConstruccion.db"; // ruta relativa
+    // Por convencion la base de datos debe estar guardada en la carpeta resources en el piso del proyecto,
+    // es un habito seguir las estructuras de de carpetas
 
     public static Connection getConnection() throws SQLException {
         String url = "jdbc:sqlite:" + UBICACION_BD;
