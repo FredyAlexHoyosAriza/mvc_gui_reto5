@@ -131,7 +131,6 @@ public class MaterialConstruccionDao {
 
             // Se realiza la insercion
             success = readyStatement.executeUpdate();
-            System.out.println(success);
 
             readyStatement.close();
 
