@@ -7,18 +7,20 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 // Clases para GUI
 import javax.swing.JFrame; // Clase para crear ventanas
+import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
+import javax.swing.plaf.FontUIResource;
 
 // import org.w3c.dom.ranges.Range;
 
-import javax.swing.JPanel;
 import java.awt.GridLayout;
 import java.awt.FlowLayout;
+import java.awt.Font;
 
 // Interfaces para GUI
 // Puesto que el MVC implica una interfaz, con la mernor cantidad
@@ -65,27 +67,40 @@ public class MaterialsCRUD_GUI extends JFrame {
         // Por defecto la ventana permanece oculta y abierta, por ello se debe establecer que esta se cierre
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
+        final int FONT_SIZE = 18;
+
         // Inicializar botones
         btnAdd = new JButton("Add"); // Texto que aparece en el boton
         btnAdd.addActionListener(controlador); // Ahora el controlador escucha la presion del boton
         btnAdd.setActionCommand("agregarMaterial"); // Mensaje enviado al presionar boton
+        btnAdd.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
 
         btnDelete = new JButton("Delete");
         btnDelete.addActionListener(controlador);
         btnDelete.setActionCommand("eliminarMaterial");
+        btnDelete.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
 
         btnUpdate = new JButton("Update");
         btnUpdate.addActionListener(controlador);
         btnUpdate.setActionCommand("actualizarMaterial");
+        btnUpdate.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
 
         txtMaterialName = new JTextField();
         txtImported = new JTextField();
         txtUnitPrice = new JTextField();
+
+        txtMaterialName.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
+        txtImported.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
+        txtUnitPrice.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
         
         // Nota: al igual que los JButtons, los JLabels tambien pueden llevar imagenes
         lblMaterialName = new JLabel("Material name: ", SwingConstants.RIGHT); // texto alineado a la derecha
         lblImported = new JLabel("Imported: ", SwingConstants.RIGHT);
         lblUnitPrice = new JLabel("Unit price: ", SwingConstants.RIGHT);
+
+        lblMaterialName.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
+        lblImported.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
+        lblUnitPrice.setFont(new FontUIResource("Dialog", Font.PLAIN, FONT_SIZE));
 
         panelEditMaterial = new JPanel(new GridLayout(3, 3));
         panelEditMaterial.setBorder(new TitledBorder("Registrar nuevo material"));
